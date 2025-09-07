@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .btn {
+  align-self: flex-end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex-grow: 1;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid hsl(200, 100%, 10%);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: hsl(200, 100%, 50%);
+}
+
+.form-btn-row {
+  justify-content: flex-end;
+}
+
+.btn:disabled {
+  background: hsl(200, 10%, 50%);
+  color: hsl(200, 10%, 95%);
+  cursor: not-allowed;
+}
+
+.btn-outline {
+  background: none;
+  color: hsl(200, 100%, 25%);
+  border: 2px solid hsl(200, 100%, 25%);
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  background: hsl(200, 50%, 90%);
+}
+
+.btn-outline:disabled {
+  border-color: hsl(200, 10%, 50%);
+  color: hsl(200, 10%, 50%);
+  background: hsl(200, 10%, 90%);
+  cursor: not-allowed;
+}
+
+.btn-outline.btn-danger {
+  border-color: hsl(0, 100%, 30%);
+  color: hsl(0, 100%, 30%);
+}
+
+.btn-outline.btn-danger:hover,
+.btn-outline.btn-danger:focus {
+  background: hsl(0, 100%, 95%);
+}
+
+.btn-outline.btn-danger:disabled {
+  border-color: hsl(0, 10%, 50%);
+  color: hsl(0, 10%, 50%);
+  background: hsl(0, 10%, 90%);
+}
+
+.page-title .title-btns {
+  font-size: 1.5rem;
+  font-weight: normal;
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+  border-color: hsl(0, 100%, 50%);
+}
+
+.form-group .error-message {
+  color: hsl(0, 100%, 50%);
+  font-size: 1rem;
+}
+
+.btn {
+  text-decoration: none;
+  color: hsl(200, 20%, 95%);
+  background: hsl(200, 100%, 25%);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background: hsl(200, 100%, 35%);
+}
