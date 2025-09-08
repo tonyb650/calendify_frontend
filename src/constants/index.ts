@@ -1,0 +1,2 @@
+export const DEFAULT_EARLIEST_TIME=16
+export const DEFAULT_LATEST_TIME=34

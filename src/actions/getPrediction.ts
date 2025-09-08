@@ -1,5 +1,6 @@
-import { getCurrentUser } from "@/db/users"
-import { timeSlotStatus } from "@/utils/timeSlots"
+import { currentUser } from "@/db/auth"
+// import { getCurrentUser } from "@/db/users"
+import { timeSlotStatus } from "@/lib/timeSlots"
 import * as tf from "@tensorflow/tfjs"
 
 export default async function getPrediction(date: Date): Promise<number[]|null> {
@@ -7,7 +8,7 @@ export default async function getPrediction(date: Date): Promise<number[]|null> 
 
   
   const currentTimeSlotStatus = await timeSlotStatus(date)
-  const user = await getCurrentUser()
+  const user = await currentUser()
 
   // TODO better way to manage 'null' user
   const earliest = user?.earliest || 8

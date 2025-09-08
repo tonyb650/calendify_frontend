@@ -1,9 +1,6 @@
-import Navbar from "@/components/NavBar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { getCurrentUser } from "@/db/users";
-import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,17 +27,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Suspense fallback="Loading...">
-          <AwaitedNavbar />
-        </Suspense>
-        <main className="max-w-7xl mx-auto">{children}</main>
+
+        {children}
       </body>
     </html>
-  );
+  )
 }
-
-const AwaitedNavbar = async () => {
-  const user = await getCurrentUser() || undefined
-  
-  return <Navbar user={user} />
-};

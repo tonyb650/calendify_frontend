@@ -3,7 +3,7 @@
 import { createEvent, deleteEvent, EventWithParts, updateEvent } from "@/db/events";
 import { createPart, deletePart, updatePart } from "@/db/parts";
 import type { Event } from "@/generated/prisma";
-import { generateDateObject, getEndTime } from "@/utils/dateUtils";
+import { generateDateObject, getEndTime } from "@/lib/dateUtils";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 

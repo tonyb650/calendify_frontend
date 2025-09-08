@@ -1,10 +1,10 @@
 "use server";
 
-import { getServerSession } from "next-auth";
+import { auth } from "@/auth";
+// import { getServerSession } from "next-auth";
 import prisma from "../../lib/prisma";
 import delay from "./delay";
 import type { Event, Prisma } from "@/generated/prisma";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 type CreateEvent = Partial<Event> & Required<Pick<Event, "title">>;
 type UpdateEvent = Partial<Event> & Required<Pick<Event, "id">>;
@@ -12,8 +12,9 @@ export type EventWithParts = Prisma.EventGetPayload<{include: { parts: true } }>
 
 export async function getEvents(): Promise<EventWithParts[]> {
   await delay(500);
-
-  const session = await getServerSession(authOptions)
+  
+  const session = await auth()
+  // const session = null//await getServerSession(authOptions)
 
   if (!session?.user?.id) {
     return []
@@ -37,7 +38,8 @@ export async function createEvent({
 }: CreateEvent): Promise<EventWithParts> {
   await delay(500);
 
-  const session = await getServerSession(authOptions)
+  const session = await auth()
+  // const session = null//await getServerSession(authOptions)
 
   if (!session?.user?.id) {
     throw new Error("User not authenticated");
@@ -66,7 +68,8 @@ export async function updateEvent({
 }: UpdateEvent): Promise<EventWithParts> {
   await delay(500);
     
-  const session = await getServerSession(authOptions);
+  const session = await auth()
+  // const session = null//await getServerSession(authOptions);
   
   if (!session?.user?.id) {
     throw new Error("User not authenticated");
@@ -89,7 +92,8 @@ export async function updateEvent({
 export async function deleteEvent(id: string) {
   await delay(500);
     
-  const session = await getServerSession(authOptions);
+  const session = await auth()
+  // const session = null//await getServerSession(authOptions);
   
   if (!session?.user?.id) {
     throw new Error("User not authenticated");
